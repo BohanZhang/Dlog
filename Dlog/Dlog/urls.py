@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     # url(r'^Dlog/', include('Dlog.foo.urls')),
 
      url(r'^admin/', include(admin.site.urls)),
+     url(r'^blog/', include('blog.urls')),
 )

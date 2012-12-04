@@ -1,0 +1,14 @@
+<div class="blog">
+	{% if blog %}
+	<div class="title">
+		<h1>{{ blog.title }}</h1>
+	</div>
+	<div class="info">
+		<span class="time">{{ blog.modify_time }}</span>
+		<span class="author">{{ blog.author.first_name }}</span>
+	</div>
+	<div class="content">
+		{{ blog.content }}	
+	</div>
+	{% endif %}
+</div>

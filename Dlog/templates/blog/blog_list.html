@@ -1,0 +1,7 @@
+<div class="blog_list">
+{% if blog_list %}
+	{% for blog in blog_list %}
+		{% include "blog/blog.html" %}
+	{% endfor %}
+{% endif %}
+</div>
