@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 import logging
 from models import Blog
 
@@ -36,3 +37,8 @@ def get_blog_list(request):
     data = {}
     data['blog_list'] = blog_list
     return render_to_response(template, data)
+
+def edit_blog(request):
+    template = 'blog/blog_edit.html'
+    data = {}
+    return render_to_response(template, data, context_instance = RequestContext(request))

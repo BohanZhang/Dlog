@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<script src="/static/epiceditor/js/epiceditor.js"></script>
+</head>
+<body>
+<!-- Container -->
+<div id="container">
+	{% block container %}
+	{% endblock %}
+</div>
+</body>
+{% block script %}{% endblock %}
+</html>

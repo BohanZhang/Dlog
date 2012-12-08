@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}编辑文章{% endblock %}
+{% block container %}
+<div id="epiceditor">
+	
+</div>
+{% endblock %}
+{% block script %}
+<script>
+	var opts = {
+	  container: 'epiceditor',
+	  shortcut: {
+	    modifier: 18,
+	    fullscreen: 70,
+	    preview: 80,
+	    edit: 79
+	  }
+	}
+	var editor = new EpicEditor(opts);
+	editor.load();
+</script>
+{% endblock %}
