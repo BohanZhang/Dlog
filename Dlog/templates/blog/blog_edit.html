@@ -1,22 +1,25 @@
 {% extends "base.html" %}
 {% block title %}编辑文章{% endblock %}
 {% block container %}
-<div id="epiceditor">
-	
+<div class="blog_edit">
+	<form action="/blog/save">
+	<div class="blog_title">
+		<label id="title">标题：</label>
+		<input type="input" id="title" name="title" value="{{ blog.title }}" />
+	</div>
+	<div class="blog_content">
+		<div id="epiceditor">
+			
+		</div>
+	</div>
+	<div class="blog_hidden">
+		<input type="hidden" name="id" value="{{ blog.id }}"/>
+		<input type="hidden" id="content" name="content" value="{{ blog.content }}"/>
+	</div>
+	</form>
 </div>
 {% endblock %}
 {% block script %}
-<script>
-	var opts = {
-	  container: 'epiceditor',
-	  shortcut: {
-	    modifier: 18,
-	    fullscreen: 70,
-	    preview: 80,
-	    edit: 79
-	  }
-	}
-	var editor = new EpicEditor(opts);
-	editor.load();
-</script>
+<script src="/static/epiceditor/js/epiceditor.js"></script>
+<script src="/static/js/epiceditor_settings.js"></script>
 {% endblock %}

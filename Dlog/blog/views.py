@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 import logging
 from models import Blog
@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 def get_blog(request, id):
     """
-        取得Blog
+        Get one blog.
     """
     template = 'blog/blog.html'
     parameters = {}
@@ -16,7 +16,7 @@ def get_blog(request, id):
     parameters['id'] = id
     
     logger.info('Get blog, id: %s' % id)
-    blog = Blog.objects.get(**parameters)
+    blog = get_object_or_404(Blog, **parameters)
     logger.debug('blog get: %s' % blog)
     
     data = {}
@@ -25,7 +25,7 @@ def get_blog(request, id):
 
 def get_blog_list(request):
     """
-        取得博客列表
+        Get blog list.
     """
     template = 'blog/blog_list.html'
     
@@ -38,10 +38,17 @@ def get_blog_list(request):
     data['blog_list'] = blog_list
     return render_to_response(template, data)
 
+def save_blog(request):
+    """
+    Ajax save the blog.
+    """
+    json_data = request.body
+    logger.debug(json_data)
+
 def edit_blog(request):
     template = 'blog/blog_edit.html'
     
-    blog = Blog.objects.get(pk = 2)
+    blog = get_object_or_404(Blog, pk = 2)
     
     data = {}
     data['blog'] = blog

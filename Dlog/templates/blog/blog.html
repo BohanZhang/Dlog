@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load markup %}
+{% block title %}文章 | {{ blog.title }}{% endblock %}
+{% block container %}
 <div class="blog">
 	{% if blog %}
 	<div class="title">
@@ -8,7 +12,8 @@
 		<span class="author">{{ blog.author.first_name }}</span>
 	</div>
 	<div class="content">
-		{{ blog.content }}	
+		{{ blog.content|markdown:"safe" }}	
 	</div>
 	{% endif %}
 </div>
+{% endblock %}

@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.markup',
     'blog',
 )
 
@@ -156,9 +157,10 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'blog.views': {
+        'default': {
             'handlers': ['console', 'mail_admins'],
             'level': 'DEBUG',
+            'formatters' : 'verbose',
         }
     }
 }
