@@ -16,7 +16,7 @@
 							
 						</div>
 						<div style="display: none;">
-							{{ field.field }}
+							{{ field.field|safe }}
 						</div>
                     {% else %}
                         {{ field.label_tag }}
