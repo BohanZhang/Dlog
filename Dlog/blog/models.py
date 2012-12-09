@@ -14,7 +14,7 @@ class Blog(models.Model):
     content = models.TextField('正文', blank = True)
     author = models.ForeignKey(User, verbose_name = '作者')
     status = models.CharField('状态', max_length = 10, choices = STATUS_IN_BLOG_CHOICES, default = 'SAVE')
-    mark_public = models.NullBooleanField('发布', default = False)
+    mark_public = models.NullBooleanField('发布', default = True)
     modify_time = models.DateTimeField('修改时间', auto_now = True)
     create_time = models.DateTimeField('创建时间', auto_now_add = True)
     
