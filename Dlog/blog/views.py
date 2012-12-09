@@ -40,5 +40,9 @@ def get_blog_list(request):
 
 def edit_blog(request):
     template = 'blog/blog_edit.html'
+    
+    blog = Blog.objects.get(pk = 2)
+    
     data = {}
+    data['blog'] = blog
     return render_to_response(template, data, context_instance = RequestContext(request))
