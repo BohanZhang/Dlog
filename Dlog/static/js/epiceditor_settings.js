@@ -1,4 +1,4 @@
-var content = document.getElementById("content").value;
+var content = document.getElementById("id_content").value;
 if(content == null) {
 	content = "# TODO \r\n Writing something use the markdown Syntax";
 }
